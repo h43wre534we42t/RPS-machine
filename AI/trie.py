@@ -8,6 +8,7 @@ class Trie:
     def __init__(self):
         self.root = Node()
 
+    #example. if value = "RPS" adds "R->P->S"  and "P->S" nodes to trie
     def add_node(self, value):
         for start in range(len(value)-1):
             current_node = self.root

@@ -4,5 +4,10 @@ Markovin ketjuja.
 Kivi-sakset-paperi pelin pelaamisen ihmistä vastaan.
 Kivi, sakset tai paperi ja niiden avulla koitetaan ymmärtämään pelaajan pelityyli ja voittamaan sitä vastaan.
 Aiheen ydin on tekoäly, joka oppii pelaajan pelityylin.
+Toteutan trie rakenteen joka hakee vain maksimissaan 6 merkin pituisia jonoja. Tavoitteeni toteutukselle on O(1)
 TKT
 Suomi
+
+https://arxiv.org/pdf/2003.06769
+https://en.wikipedia.org/wiki/Trie
+
