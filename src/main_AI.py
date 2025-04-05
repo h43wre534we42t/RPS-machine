@@ -4,19 +4,21 @@ import trie
 class Main_AI:
     def __init__(self):
         self.memory = trie.Trie()
+
         self.ai1 = AI.AI(2, self.memory)
         self.ai2 = AI.AI(3, self.memory)
         self.ai3 = AI.AI(4, self.memory)
         self.ai4 = AI.AI(5, self.memory)
         self.ai5 = AI.AI(6, self.memory)
         self.ais = [self.ai1, self.ai2, self.ai3, self.ai4, self.ai5]
+        
         self.lead = 0
 
     def play(self, string, opponent_move):
         moves = []
 
         for ai in self.ais:
-            moves.append(ai.decide(string))
+            moves.append(ai.decide_move(string))
 
         self.update_lead()
         self.update_memory(string + opponent_move)
@@ -43,9 +45,18 @@ class Main_AI:
                 self.ais[i].credit += 1
             elif counter_moves[moves[i]] == opponent_move:
                 self.ais[i].credit -= 1
-    
+
+    def display_credits(self):
+        credits = []
+
+        for ai in self.ais:
+            credits.append(ai.credit)
+        return credits
+
+            
     def update_lead(self):
         max_credit = -1000
+
         for i in range(len(self.ais)):
             if self.ais[i].credit > max_credit:
                 max_credit = self.ais[i].credit
@@ -53,9 +64,3 @@ class Main_AI:
 
     def update_memory(self, string):
         self.memory.add_node(string)
-
-    def display_credits(self):
-        credits = []
-        for ai in self.ais:
-            credits.append(ai.credit)
-        return credits

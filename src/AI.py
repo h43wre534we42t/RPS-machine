@@ -10,6 +10,8 @@ class AI:
         return random.choice(['R', 'P', 'S'])
     
     def decide_move(self, string):
+        if len(string) < self.lookback:
+            return None
         recent_moves = string[-self.lookback::]
         move = self.memory.next_move(recent_moves)
 

@@ -1,0 +1,3 @@
+import RPS
+
+RPS.main()

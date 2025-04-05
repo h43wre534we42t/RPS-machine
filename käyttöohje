@@ -1,0 +1,9 @@
+Clone the repository
+From the terminal run RPS-machine/src/main.py
+python3 main.py
+
+to run tests:
+poetry install
+poetry run pytest src
+
+for me it was not working from poetry shell
