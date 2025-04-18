@@ -1,0 +1,12 @@
+Main_AI luokka luo itselleen trie muistin ja 5 AI:ta. play metodissa AI:t valitsee liikkeet trie muistin avulla ja sitten valitaan sen AI:n liike,
+jolla on eniten pisteitä. play metodi myös päivittä muistin sen jälkeen.
+RPS.py ohjaa peliä.
+
+Käyttöliittymää voi parantaa siten että ei tule uutta tulostusta joka kierroksen jälkeen vain että se on pysyvä ja vain jotkut asiat vaihtuvat.
+
+Olen kysynyt deepseekiltä apua koodin toteutukseen, mutta vain pieniin osiin enkä kokonaisuuksiin. Iso osa oli string slicingiin liittyviä asioita.
+
+
+Lähteet:
+https://en.wikipedia.org/wiki/Trie
+https://arxiv.org/pdf/2003.06769

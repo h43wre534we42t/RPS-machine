@@ -5,13 +5,14 @@ class Main_AI:
     def __init__(self):
         self.memory = trie.Trie()
 
-        self.ai1 = AI.AI(2, self.memory)
-        self.ai2 = AI.AI(3, self.memory)
-        self.ai3 = AI.AI(4, self.memory)
-        self.ai4 = AI.AI(5, self.memory)
-        self.ai5 = AI.AI(6, self.memory)
+        self.ai1 = AI.AI(1, self.memory)
+        self.ai2 = AI.AI(2, self.memory)
+        self.ai3 = AI.AI(3, self.memory)
+        self.ai4 = AI.AI(4, self.memory)
+        self.ai5 = AI.AI(5, self.memory)
         self.ais = [self.ai1, self.ai2, self.ai3, self.ai4, self.ai5]
-        
+
+        self.rounds_played = 0
         self.lead = 0
 
     def play(self, string, opponent_move):
@@ -20,20 +21,27 @@ class Main_AI:
         for ai in self.ais:
             moves.append(ai.decide_move(string))
 
-        self.update_lead()
+        print(moves)
+
+        self.rounds_played += 1
+        if self.rounds_played == 5:
+            self.update_lead()
+            self.rounds_played = 0
+        
+        self.add_credits(moves, opponent_move)
         self.update_memory(string + opponent_move)
 
-        sorted_indices = sorted(range(len(self.ais)), key=lambda i: self.ais[i].credit, reverse=True)
-        
-        #credits for current move are added last so they don't influence the decision as the AI shouldn't know what move the opponent played
-        self.add_credits(moves, opponent_move)
-
-        # Try moves in order of highest credit AIs
-        for index in sorted_indices:
-            if moves[index] is not None: 
-                return moves[index]
+        if moves[self.lead] != None:
+            return moves[self.lead]
 
         return self.ai1.random_move()
+    
+    def ai_moves(self, string):
+        moves = []
+        for ai in self.ais:
+            moves.append(ai.decide_move(string))
+
+        return moves
 
     def add_credits(self, moves, opponent_move):
         counter_moves = {'R': 'P', 'P': 'S', 'S': 'R'}

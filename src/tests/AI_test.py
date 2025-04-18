@@ -6,7 +6,7 @@ import random
 class TestAI(unittest.TestCase):
     def setUp(self):
         self.memory = Trie()
-        self.ai1 = AI(2, self.memory)
+        self.ai1 = AI(1, self.memory)
 
     def test_decide_move_returns_counter_move(self):
         self.memory.add_node("RPS")  #adds "RPS" and "PS"
@@ -15,7 +15,12 @@ class TestAI(unittest.TestCase):
         self.assertEqual(result, 'R')
 
         result = self.ai1.decide_move("XXXP")
+        self.assertEqual(result, 'R')
+
+        self.assertEqual(self.memory.frequency("RP"), 0)
+        result = self.ai1.decide_move("XXXR")
         self.assertIsNone(result)
+
 
     def test_decide_move_returns_none_if_no_pattern(self):
         result = self.ai1.decide_move("RPS")
@@ -33,7 +38,7 @@ class TestAI(unittest.TestCase):
 
     def test_decide_move_with_short_input(self):
         self.memory.add_node("RPS")
-        result = self.ai1.decide_move("R")
+        result = self.ai1.decide_move("S")
         self.assertIsNone(result)
 
     def test_random_move_with_seed(self):

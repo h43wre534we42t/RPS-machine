@@ -42,3 +42,4 @@ class TestTrie(unittest.TestCase):
         self.assertEqual(self.trie.next_move("RP"), 'S')
 
         self.assertIsNone(self.trie.next_move("XYZ"))
+

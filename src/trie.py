@@ -47,4 +47,6 @@ class Trie:
         if moves == []:
             return None
         highest = max(moves, key=lambda x: x[1])
+        if highest[1] == 0:
+           return None
         return highest[0]

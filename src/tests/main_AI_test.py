@@ -20,3 +20,20 @@ class test_main_AI(unittest.TestCase):
         moves = ["R", "R", "R", "R", "P"]
         self.ai.add_credits(moves, "S")
         self.assertEqual(self.ai.display_credits(), [1, 1, 1, 1, -1])
+
+    def test(self):
+        self.ai.play("", "P")
+        self.ai.play("P", "S")
+        self.ai.play("PS", "S")
+        self.ai.play("PSS", "R")
+        self.ai.play("PSSR", "S")
+        self.ai.play("PSSRS", "P")
+        self.ai.play("PSSRSP", "R")
+        self.assertEqual(self.ai.memory.frequency("SPR"), 1)
+        self.ai.play("PSSRSPR", "S")
+        self.ai.play("PSSRSPRS", "S")
+        self.ai.play("PSSRSPRSS", "P")
+        self.ai.play("PSSRSPRSSP", "S")
+        self.ai.play("PSSRSPRSSPS", "P")
+
+        self.assertEqual(self.ai.display_credits(), [0, -2, 0, 0, 0])

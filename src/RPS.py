@@ -36,6 +36,7 @@ def main():
         ai_output = game.play(string, player_input)
 
         print("You play: ", full_move_names[player_input], "               AI plays: ", full_move_names[ai_output])
+        print("All AI credits: ", game.display_credits())
 
         if counter_moves[player_input] == ai_output:
             print("                   You lose!")
@@ -49,4 +50,5 @@ def main():
         print("Your points: ", player_points, "    AI points: ", ai_points, "    Score: ", player_points - ai_points)
         print("----------------------------------------------------------")
 
+        print(string)
         string += player_input

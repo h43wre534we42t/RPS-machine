@@ -1,0 +1,3 @@
+Testattu trietä, yksittäisiä tekoälyjä sekä sekä kaikkia viittä yhdessä. Trien rakennetta on testattu sekä sitä että siellä ei ole mitään ylimääräistä.
+Yksittäisiä tekoälyjä on testattu varmistamalla että kun muistissa on tietyt liikkeet niin se valitsee oikean liikkeen.
+Ja koko tekoälyä on testattu katsomalla tietyn jonon liikkeiden jälkeen että tekoälyjen pisteet ovat mitä kuuluu. Simuloin paperilla miten pelin pitäisi kulkea ja lisäsin saman jonon testeihin ja varmistin että vastaus oli sama molemmissa.
